@@ -2,7 +2,7 @@ from typing import Tuple
 
 
 def calculate_tax_components(salary: int) -> Tuple[float, float, float, float, float, float, float, float]:
-    """Calculate various tax components based on the given salary."""
+    """Рассчитать различные налоговые компоненты на основе заданной зарплаты."""
     basic_mrp: float = 14 * 3450  # 14МРП (Месячный расчётный показатель)
 
     # ОПВ (Обязательные пенсионные взносы)
@@ -32,7 +32,7 @@ def calculate_tax_components(salary: int) -> Tuple[float, float, float, float, f
 
 
 def user_salary_input() -> int:
-    """Get user input for salary, ensuring it is a positive integer."""
+    """Получить данные о зарплате от пользователя и убедится, что это целое положительное число."""
     while True:
         try:
             salary: int = int(input("Ваша зарплата: "))
@@ -45,11 +45,11 @@ def user_salary_input() -> int:
 
 
 def calculation_information(salary: int, *tax_components: float) -> None:
-    """Display calculated tax information and details."""
+    """Отображение информации и сведений о рассчитанном налоге."""
     basic_mrp, pension_contributions, social_insurance_contributions, \
         income_tax, social_contributions, tax_social, medical_insurance_contributions, net_salary = tax_components
 
-    print("----- Идет вычисление... -----")
+    print("\n----- Идет вычисление... -----")
     print(f"ОПВ (Обязательные пенсионные взносы): "
           f"\n{salary=} * 10% = {pension_contributions}")
     print(
@@ -58,7 +58,7 @@ def calculation_information(salary: int, *tax_components: float) -> None:
     print(
         f"ИПН (Индивидуальный подоходный налог): "
         f"\n({salary=} - ОПВ={pension_contributions} - 14МРП={basic_mrp} - ВОСМС={social_insurance_contributions}) * 10% = {income_tax}")
-    print("----- Вычисление... -----")
+    print("\n----- Вычисление... -----")
     print(f"CO (Социальные отчисления): "
           f"\n({salary=} - ОПВ={pension_contributions}) * 3.5% = {social_contributions}")
     print(
@@ -67,16 +67,16 @@ def calculation_information(salary: int, *tax_components: float) -> None:
     print(
         f"ОСМС (Отчисления на обязательное социальное медицинское страхование): "
         f"\n{salary=} * 3% = {medical_insurance_contributions}")
-    print("----- На руки: -----")
+    print("\n----- На руки: -----")
     print(
         f"Расчет зарплаты с налогами на руки: "
         f"\n{salary=} - ОПВ={pension_contributions} - ВОСМС={social_insurance_contributions} - ИПН={income_tax} = {net_salary}")
-    print(f"На руки: {net_salary} тенге")
+    print(f"На руки: {net_salary} тенге\n")
 
 
 def main() -> None:
-    """The main function to execute the salary tax calculation program."""
-    print("Я могу рассчитать налог для вашей зарплаты в Казахстане!")
+    """Основная функция для выполнения программы расчета налога на заработную плату."""
+    print("\nЯ могу рассчитать налог для вашей зарплаты в Казахстане!")
 
     salary: int = user_salary_input()
 
